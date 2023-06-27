@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef, forwardRef } from "react";
 import { useAsync } from 'react-async';
 import AlertDialog, { IDialog, IDialogData } from './Dialog';
+import useDidMountEffect from "../hooks/useDidMountEffect";
 
 export interface ILatLng {
     grd_la: string;
@@ -33,7 +34,7 @@ const NaverMap = () => {
     const { data } = useFetch('http://localhost:3001/accidentDeath');
 
     
-    useEffect(() => {
+    useDidMountEffect(() => {
         const markers: any = [];
 
         const container = document.getElementById('content');
