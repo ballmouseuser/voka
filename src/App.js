@@ -6,6 +6,7 @@ import CreateWord from "./component/CreateWord.tsx";
 import CreateDay from "./component/CreateDay.tsx";
 import NaverMap from "./component/NaverMap.tsx";
 import KakaoMap from "./component/KakaoMap.tsx";
+import Pagination from "./component/Pagination.tsx";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/kakao_map">
             <KakaoMap />
+          </Route>
+          <Route path="/pagination">
+            <Pagination />
           </Route>
           <Route>
             <EmptyPage />

@@ -4,9 +4,9 @@ import AlertDialog, { IDialog, IDialogData } from './Dialog';
 import useDidMountEffect from "../hooks/useDidMountEffect";
 
 export interface ILatLng {
-    grd_la: string;
-    grd_lo: string;
-    year: number;
+    grd_la: string,
+    grd_lo: string,
+    year: number,
 }
 
 export const useFetch = (url: string) => {
