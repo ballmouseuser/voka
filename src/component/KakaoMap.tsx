@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ILatLng, useFetch } from "./NaverMap";
 import useDidMountEffect from '../hooks/useDidMountEffect';
+import Header from "./Header";
 
 const KakaoMap = () => {
     const { data } = useFetch('http://localhost:3001/accidentDeath');
@@ -46,6 +47,7 @@ const KakaoMap = () => {
     return (
         <>
             <div>
+                <Header />
                 <div id="map" style={{width: '100%',height: '500px'}}></div>
             </div>
         </>

@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
-import Word, { IWord } from './Word';
 import useFetch from '../hooks/useFetch';
+import Word, { IWord } from './Word';
+import DayHeader from './DayHeader';
 
 const Day = () => {
     const history = useHistory();
@@ -20,7 +20,7 @@ const Day = () => {
             })
             .then(res => {
                 if(res.ok){
-                    history.push('/');
+                    history.push('/dayList');
                 }
             });
         }
@@ -28,23 +28,27 @@ const Day = () => {
 
     return (
         <>
-            <h2>Day {day}</h2>
-            {
-                words.length === 0 && <span>Loading..</span>
+            <div>
+                <DayHeader />
 
-            }
-            <br/>
-            {
-                words.length === 0 && <button onClick={deleteDay}>Delete Day</button>
+                <h2>Day {day}</h2>
+                {
+                    words.length === 0 && <span>Loading..</span>
 
-            }
-            <table>
-                <tbody>
-                    {words.map(word => (
-                        <Word word={word} key={word.id} />
-                    ))}
-                </tbody>
-            </table>
+                }
+                <br/>
+                {
+                    words.length === 0 && <button onClick={deleteDay}>Delete Day</button>
+
+                }
+                <table>
+                    <tbody>
+                        {words.map(word => (
+                            <Word word={word} key={word.id} />
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </>
     )
 }

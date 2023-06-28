@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import useFetch from "../hooks/useFetch";
 import { IDay } from "./CreateDay";
 import Select from "./Select";
+import DayHeader from "./DayHeader";
 
 export interface ICreateWord {
     day: string;
@@ -69,20 +70,23 @@ const CreateWord = (props: ICreateWord) => {
 
     return (
         <>
-            <form onSubmit={onSubmit}>
-                <div className="input_area">
-                    <label>Eng</label>
-                    <input type="text" placeholder="computer" ref={engRef}></input>
-                </div>
-                <div className="input_area">
-                    <label>Kor</label>
-                    <input type="text" placeholder="컴퓨터" ref={korRef}></input>
-                </div>
-                <Select className="input_area" labelName="day" selectList={days} value={selectValue.day} getResult={getResult}/>
-                <button style={{
-                    opacity: isLoading ? 0.3 : 1
-                }}>{isLoading ? 'Saving...' : '저장'}</button>
-            </form>
+            <div>
+                <DayHeader />
+                <form onSubmit={onSubmit}>
+                    <div className="input_area">
+                        <label>Eng</label>
+                        <input type="text" placeholder="computer" ref={engRef}></input>
+                    </div>
+                    <div className="input_area">
+                        <label>Kor</label>
+                        <input type="text" placeholder="컴퓨터" ref={korRef}></input>
+                    </div>
+                    <Select className="input_area" labelName="day" selectList={days} value={selectValue.day} getResult={getResult}/>
+                    <button style={{
+                        opacity: isLoading ? 0.3 : 1
+                    }}>{isLoading ? 'Saving...' : '저장'}</button>
+                </form>
+            </div>
         </>
     );
 }

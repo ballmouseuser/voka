@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { ILatLng } from "./NaverMap";
+import Header from "./Header";
 
 interface IPagination extends ILatLng{
     id: string,
@@ -38,6 +39,7 @@ const Pagination = () => {
     return (
         <>
             <div>
+                <Header />
                 <div>
                     {pageData.map(data => (
                         <h3 key={data.id}>

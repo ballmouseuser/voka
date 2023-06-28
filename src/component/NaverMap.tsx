@@ -2,6 +2,7 @@ import { useEffect, useState, useRef, forwardRef } from "react";
 import { useAsync } from 'react-async';
 import AlertDialog, { IDialog, IDialogData } from './Dialog';
 import useDidMountEffect from "../hooks/useDidMountEffect";
+import Header from "./Header";
 
 export interface ILatLng {
     grd_la: string,
@@ -129,6 +130,7 @@ const NaverMap = () => {
     return (
         <>
             <div>
+                <Header />
                 <div id="content" style={{width: '100%', height: '500px'}} />
                 <AlertDialog open={dialogOpen} close={handlerClose} data={{year: dialogData.year, grd_lo: dialogData.grd_lo, grd_la: dialogData.grd_la}}/>
             </div>

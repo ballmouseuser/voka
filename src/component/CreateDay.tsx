@@ -1,6 +1,7 @@
 import React from "react";
 import useFetch from "../hooks/useFetch";
 import { useHistory } from 'react-router';
+import DayHeader from './DayHeader'
 
 export interface IDay {
     id: string;
@@ -24,7 +25,7 @@ const CreateDay = () => {
         .then(res => {
             if(res.ok) {
                 alert('생성이 완료 되었습니다.');
-                history.push(`/`)
+                history.push(`/dayList`)
             }
         });
     }
@@ -32,6 +33,7 @@ const CreateDay = () => {
     return (
         <>
             <div>
+                <DayHeader />
                 <h3>현재일수 : {days.length}</h3>
                 <button onClick={addDay}>Day 추가</button>
             </div>
